@@ -10,13 +10,44 @@ html, body{
 }
 
 header{
-    height: 150px;
-    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
 }
 
 h1{
-    line-height: 150px;
+    line-height: 100px;
     font-size: 48px;
     text-transform: uppercase;
     text-align: center;
+}
+
+.busca{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    border: 2px solid rgb(226, 226, 226);
+    height: 36px;
+    line-height: 36px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 0px 5px;
+    width: 350px;
+}
+
+.busca button{
+    font-size: 100%;
+    border: 0;
+    background-color: #F5F5F5;
+}
+
+.fa-plus-square{
+    font-size: 36px;
 }
