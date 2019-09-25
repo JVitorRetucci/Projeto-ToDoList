@@ -47,6 +47,7 @@ h1{
     font-size: 100%;
     border: 0;
     background-color: #F5F5F5;
+    outline: 0;
 }
 
 .busca button:hover{
