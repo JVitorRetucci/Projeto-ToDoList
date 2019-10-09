@@ -96,6 +96,13 @@ h1{
     margin-left: 5px;
 }
 
+.items button{
+    font-size: 100%;
+    border: none;
+    background-color: rgb(0,0,0,0);
+    outline: 0;
+}
+
 .items i:hover{
     cursor: pointer;;
 }
