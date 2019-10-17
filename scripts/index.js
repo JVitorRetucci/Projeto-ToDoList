@@ -66,6 +66,7 @@ renderLists();
 
 function addItem(){
     todoItems.push(inputElement.value);
+    inputElement.value = '';
     renderLists();
 }
 
@@ -78,6 +79,11 @@ function moveToDoing(pos){
 function moveToDone(pos){
     doneItems.push(doingItems[pos]);
     doingItems.splice(pos, 1);
+    renderLists();
+}
+
+function removeItem(pos){
+    doneItems.splice(pos, 1);
     renderLists();
 }
 
