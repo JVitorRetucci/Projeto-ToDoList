@@ -23,9 +23,9 @@ function renderLists(){
         button.setAttribute('onclick', 'moveToDoing(' + todoItems.indexOf(item) + ')');
         i.setAttribute('class', 'fas fa-arrow-circle-right');
 
+        button.appendChild(i);
         li.appendChild(txt);
         li.appendChild(button);
-        li.appendChild(i);
         listaTodos.appendChild(li);
     }
 
@@ -39,9 +39,9 @@ function renderLists(){
         button.setAttribute('onclick', 'moveToDone(' + doingItems.indexOf(item) + ')');
         i.setAttribute('class', 'fas fa-arrow-circle-right');
 
+        button.appendChild(i);
         li.appendChild(txt);
         li.appendChild(button);
-        li.appendChild(i);
         listaDoing.appendChild(li);
     }
 
@@ -55,9 +55,9 @@ function renderLists(){
         button.setAttribute('onclick', 'removeItem(' + doneItems.indexOf(item) + ')');
         i.setAttribute('class', 'fas fa-times-circle');
 
+        button.appendChild(i);
         li.appendChild(txt);
         li.appendChild(button);
-        li.appendChild(i);
         listaDone.appendChild(li);
     }
 }
@@ -66,6 +66,18 @@ renderLists();
 
 function addItem(){
     todoItems.push(inputElement.value);
+    renderLists();
+}
+
+function moveToDoing(pos){
+    doingItems.push(todoItems[pos]);
+    todoItems.splice(pos, 1);
+    renderLists();
+}
+
+function moveToDone(pos){
+    doneItems.push(doingItems[pos]);
+    doingItems.splice(pos, 1);
     renderLists();
 }
 
