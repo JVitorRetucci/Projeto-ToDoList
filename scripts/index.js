@@ -4,9 +4,9 @@ const listaTodos = document.querySelector('#todos');
 const listaDoing = document.querySelector('#doing');
 const listaDone = document.querySelector('#done');
 
-const todoItems = ['Teste'];
-const doingItems = ['Teste 2'];
-const doneItems = ['Teste 3'];
+const todoItems = JSON.parse(localStorage.getItem('todos')) || [];
+const doingItems = JSON.parse(localStorage.getItem('doing')) || [];
+const doneItems = JSON.parse(localStorage.getItem('done')) || [];
 
 function renderLists(){
     listaTodos.innerHTML = '';
@@ -68,23 +68,33 @@ function addItem(){
     todoItems.push(inputElement.value);
     inputElement.value = '';
     renderLists();
+    saveToStorage();
 }
 
 function moveToDoing(pos){
     doingItems.push(todoItems[pos]);
     todoItems.splice(pos, 1);
     renderLists();
+    saveToStorage();
 }
 
 function moveToDone(pos){
     doneItems.push(doingItems[pos]);
     doingItems.splice(pos, 1);
     renderLists();
+    saveToStorage();
 }
 
 function removeItem(pos){
     doneItems.splice(pos, 1);
     renderLists();
+    saveToStorage();
+}
+
+function saveToStorage(){
+    localStorage.setItem('todos', JSON.stringify(todoItems));
+    localStorage.setItem('doing', JSON.stringify(doingItems));
+    localStorage.setItem('done', JSON.stringify(doneItems));
 }
 
 addButton.onclick = addItem;
