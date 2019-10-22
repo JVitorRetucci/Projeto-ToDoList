@@ -97,4 +97,11 @@ function saveToStorage(){
     localStorage.setItem('done', JSON.stringify(doneItems));
 }
 
+inputElement.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        addButton.click();
+    }
+});
+
 addButton.onclick = addItem;
